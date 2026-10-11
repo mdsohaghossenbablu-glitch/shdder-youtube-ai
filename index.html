@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHDDER TRADE INTERNATIONAL AI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #101827;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+    main {
+      max-width: 500px;
+      margin: auto;
+      background: #1d293b;
+      padding: 22px;
+      border-radius: 16px;
+    }
+    input, button, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 0;
+      font-size: 16px;
+    }
+    button {
+      background: #16a34a;
+      color: white;
+      font-weight: bold;
+    }
+    textarea { min-height: 120px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>SHDDER TRADE INTERNATIONAL</h2>
+    <p>YouTube Shorts AI Assistant</p>
+
+    <label for="topic">ভিডিওর বিষয় লিখুন</label>
+    <input id="topic" placeholder="যেমন: মদিনা শরিফ">
+
+    <button onclick="generate()">SEO তৈরি করুন</button>
+
+    <textarea id="result" placeholder="এখানে ফলাফল দেখা যাবে"></textarea>
+    <button onclick="copyResult()">ফলাফল কপি করুন</button>
+
+    <p>পরবর্তী ধাপ: AI ভিডিও তৈরি ও YouTube আপলোড সংযোগ</p>
+  </main>
+
+  <script>
+    function generate() {
+      const topic = document.getElementById('topic').value.trim();
+      if (!topic) {
+        alert('আগে ভিডিওর বিষয় লিখুন');
+        return;
+      }
+      document.getElementById('result').value =
+        'Title: ' + topic + ' | SHDDER TRADE INTERNATIONAL\n\n' +
+        'Description: ' + topic +
+        ' নিয়ে আমাদের নতুন Shorts ভিডিও দেখুন।\n\n' +
+        '#Shorts #' + topic.replace(/\s+/g, '') +
+        ' #SHDDERTRADEINTERNATIONAL';
+    }
+
+    function copyResult() {
+      const result = document.getElementById('result');
+      result.select();
+      if (result.value) {
+        navigator.clipboard.writeText(result.value)
+          .then(() => alert('কপি হয়েছে'))
+          .catch(() => alert('লেখা নির্বাচন করে Copy চাপুন'));
+      }
+    }
+  </script>
+</body>
+</html>
